@@ -9,6 +9,9 @@ Two input files are needed: NGS data file in fastq format and a text file of sam
 Sample ID format:
 ![Image](/images/s_2.png)
 
+## Run
+
+
 ## Output
 1. Text file
 Extracted barcodes for each sample are exported as individual tab-delimited text file named with its sample ID. If the read begins with an expected sample ID, barcodes will be extracted and reads are written in rows. The first column contains barcodes representing the sample ID and the subsequent columns contain barcodes at different (nth) positions. The total number of columns depends on the number (n) of positions being mutated/barcoded in the study.
