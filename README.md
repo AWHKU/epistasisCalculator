@@ -24,7 +24,7 @@ python epistasisCalc.py epcalc_demo.csv 5 4 1,3 2,4
 ```
 
 ## Output
-The program outputs a csv file showing the expected and observed log2 enrichment scores, and the epistasis score.
+1. The program outputs a csv file showing the expected and observed log2 enrichment scores, and the epistasis score.
 ```
 # variant,module0,module1,module2,module3,expected,observed,epistasis score
 1,RQ,K,ETQ,KR,-20.7729060596,-20.7729060596,0.0
