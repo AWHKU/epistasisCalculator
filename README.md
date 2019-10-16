@@ -37,6 +37,21 @@ python epistasisCalc.py epcalc_demo.csv 5 4 1,3 2,4
 8,AA,A,ETQ,KR,-21.1764984987,-20.8493895046,0.327108994106
 9,RQ,K,ETA,KR,-20.4675750769,-19.5515821287,0.915992948187
 ```
+1. The program outputs a csv file, which is used as the input for heatmap generation. Column 1 contains the indicated modules in [heatmap Dimension1], and Column 2 contains the indicated modules in [heatmap Dimension2].
+```
+module0_module2,module1_module3,epistasis score
+RQ_ETQ,K_KR,0.0
+RA_ETQ,K_KR,0.260123240415
+AQ_ETQ,K_KR,0.386094808765
+AA_ETQ,K_KR,0.116878377914
+RQ_ETQ,A_KR,0.339144228812
+RA_ETQ,A_KR,-0.966934820793
+AQ_ETQ,A_KR,0.0372370163874
+AA_ETQ,A_KR,-1.56401196295
+RQ_ETA,K_KR,0.372853488021
+```
+1. The heatmap of the calcuated epistasis scores for each combination.
+![Image](epcalc_demo_heatmap.png)
 
 ## Note
 csv files can be opened using excel or other spreadsheet softwares.
