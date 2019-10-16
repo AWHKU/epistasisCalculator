@@ -16,11 +16,11 @@ variant #,module 1,module 2,module 3,module 4,Bin A,unsorted,Bin A,unsorted
 
 ## Run
 ```
-python epistasisCalc.py [input csv file] [line where the first variant start] [number of modules]
+python epistasisCalc.py [input file] [line the first variant starts] [# of modules] [heatmap Dimension1] [heatmap Dimension2]
 ```
 To run the demo file
 ```
-python epistasisCalc.py epcalc_demo.csv 5 4
+python epistasisCalc.py epcalc_demo.csv 5 4 1,3 2,4
 ```
 
 ## Output
