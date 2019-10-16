@@ -18,16 +18,8 @@ def joinAA(aalist,modules):
 
 def enrichmentRatio(set):
  selected, total=float(set[0]), float(set[1])
- denominator=(1.0-selected)*(1.0-total)
- if denominator <= 0:
-  denominator= 0.0000001
- if total <= 0:
-  total= 0.0000001
- E=(selected/total)/denominator
- if E <= 0:
-  E= 0.0000001
- lgE=math.log(float(E),2.0)
- return lgE
+ E=selected/total
+ return E
 
 def openFile(fn,startln,modules):
  obsDict={}
@@ -44,7 +36,7 @@ def openFile(fn,startln,modules):
   if "LOW" not in l:
    key=joinAA(ln[1:],modules)
    setA, setB=ln[-4:-2], ln[-2:]
-   meanlgE= 0.5*(enrichmentRatio(setA)+enrichmentRatio(setB))
+   meanlgE= math.log((0.5*(enrichmentRatio(setA)+enrichmentRatio(setB))),2.0)
    obsDict[key]=(ln[0],meanlgE,ln[1:modules+1])
  return (obsDict,wtseq)
 Ofile=openFile(fn,startln,modules)
@@ -64,6 +56,10 @@ def libVariants(modules,obsDict,wtseq):
      libs[an][obsDict[dr][-1][an]]=obsDict[joinAA(obsDict[dr][-1],modules)]
  return libs
 libs=libVariants(modules,obsDict,wtseq)
+#for m in libs:
+# for i in m:
+#  print(i, m[i])
+
 
 def epistasisOut(modules,libs,obsDict,outfn):
  outlns=[]
@@ -115,7 +111,7 @@ def genHeatmap(heatfn):
  h=file.readline().strip("\r\n").split(",")
  mat=pd.read_csv(heatfn)
  mat=mat.pivot(h[0],h[1],h[2])
- ax=sns.heatmap(mat,cmap="YlGnBu")
+ ax=sns.heatmap(mat,cmap="YlGnBu",annot=True, fmt='f', annot_kws={"size": 4})
  sns_heatmap=ax.get_figure()
  sns_heatmap.savefig(hpic)
 genHeatmap(heatfn)
