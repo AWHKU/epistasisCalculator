@@ -1,9 +1,13 @@
 import sys, math 
+import pandas as pd
+import seaborn as sns
 
 fn=sys.argv[1]
 outfn=fn.split(".")[0]+"_output.csv"
+heatfn=fn.split(".")[0]+"_heatmapIn.csv"
 startln=int(sys.argv[2])-1
 modules=int(sys.argv[3])
+heatmap1, heatmap2=sys.argv[4], sys.argv[5]
 
 def joinAA(aalist,modules):
  key=""
@@ -85,5 +89,33 @@ def epistasisOut(modules,libs,obsDict,outfn):
   for ln in outlns:
    outfile.write(ln[1])
   outfile.close()
-
 epistasisOut(modules,libs,obsDict,outfn)
+
+def genHeatmapIn(heatmap1,heatmap2,outfn,heatfn):
+ file=open(outfn,"r")
+ outfile=open(heatfn,"w")
+ D1,D2=heatmap1.split(","),heatmap2.split(",")
+ for ln in file:
+  ln=ln.split(",")
+  if len(ln) > 5:
+   one,two="",""
+   for i in D1:
+    one+=ln[int(i)]+"_"
+   one=one.strip("_")
+   for j in D2:
+    two+=ln[int(j)]+"_"
+   two=two.strip("_")
+   outfile.write(one+","+two+","+ln[-1])
+ outfile.close()
+genHeatmapIn(heatmap1,heatmap2,outfn,heatfn)
+ 
+def genHeatmap(heatfn):
+ file=open(heatfn,"r")
+ hpic=heatfn.split(".")[0].strip("In")+".png"
+ h=file.readline().strip("\r\n").split(",")
+ mat=pd.read_csv(heatfn)
+ mat=mat.pivot(h[0],h[1],h[2])
+ ax=sns.heatmap(mat,cmap="YlGnBu")
+ sns_heatmap=ax.get_figure()
+ sns_heatmap.savefig(hpic)
+genHeatmap(heatfn)
