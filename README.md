@@ -4,7 +4,7 @@ The program epistasisCalc.py calculates the epistasis scores of combinatorial pr
 
 ## Input
 The input format is indicated as in epcalc_demo.csv. This program requires a csv input file and runs in Python 2.7.
-The demo input is from https://www.nature.com/articles/s41592-019-0473-0 (G.C.G. Choi et al., Nat. Methods, 2019) and generates the heatmap of sg5-on in Figure 4.
+The demo input is from https://www.nature.com/articles/s41592-019-0473-0 (G.C.G. Choi et al., Nat. Methods, 2019) and generates the heatmap equivalent to the sg5-on heatmap in Figure 4.
 ```
 variant #,module 1,module 2,module 3,module 4,Bin A,unsorted,Bin A,unsorted
 1,RQ,K,ETQ,KR,4450.26,1435.77,4284.28,1249.13
