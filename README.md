@@ -37,5 +37,9 @@ The program outputs a csv file showing the expected and observed log2 enrichment
 8,AA,A,ETQ,KR,-21.1764984987,-20.8493895046,0.327108994106
 9,RQ,K,ETA,KR,-20.4675750769,-19.5515821287,0.915992948187
 ```
+
+## Note
+csv files can be opened using excel or other spreadsheet softwares.
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
