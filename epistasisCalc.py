@@ -1,6 +1,6 @@
 import sys, math 
 import pandas as pd
-import seaborn as sns
+#import seaborn as sns
 
 fn=sys.argv[1]
 outfn=fn.split(".")[0]+"_output.csv"
@@ -56,10 +56,6 @@ def libVariants(modules,obsDict,wtseq):
      libs[an][obsDict[dr][-1][an]]=obsDict[joinAA(obsDict[dr][-1],modules)]
  return libs
 libs=libVariants(modules,obsDict,wtseq)
-#for m in libs:
-# for i in m:
-#  print(i, m[i])
-
 
 def epistasisOut(modules,libs,obsDict,outfn):
  outlns=[]
@@ -106,12 +102,23 @@ def genHeatmapIn(heatmap1,heatmap2,outfn,heatfn):
 genHeatmapIn(heatmap1,heatmap2,outfn,heatfn)
  
 def genHeatmap(heatfn):
+ alphabets=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
  file=open(heatfn,"r")
  hpic=heatfn.split(".")[0].strip("In")+".png"
  h=file.readline().strip("\r\n").split(",")
  mat=pd.read_csv(heatfn)
+ mini, maxi= mat[h[2]].min(), mat[h[2]].max()
  mat=mat.pivot(h[0],h[1],h[2])
- ax=sns.heatmap(mat,cmap="YlGnBu",annot=True, fmt='f', annot_kws={"size": 4})
- sns_heatmap=ax.get_figure()
- sns_heatmap.savefig(hpic)
+ shape=mat.shape
+ dim='B2:'+alphabets[shape[1]]+str(shape[0]+1)
+ excel_file='testfile.xlsx'
+ sheet_name='Sheet1'
+ writer = pd.ExcelWriter(excel_file, engine='xlsxwriter')
+ mat.to_excel(writer, sheet_name=sheet_name)
+ workbook=writer.book
+ worksheet=writer.sheets[sheet_name]
+ format1 = workbook.add_format({'bg_color':'gray'})
+ worksheet.conditional_format(dim,{'type':'cell','criteria':'==','value': '""', 'format': format1})
+ worksheet.conditional_format(dim,{'type':'3_color_scale','max_color':'red','min_color':'blue','mid_color':'white'})
+ writer.save()
 genHeatmap(heatfn)
