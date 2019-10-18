@@ -51,7 +51,7 @@ AQ_ETQ,A_KR,0.0372370163874
 AA_ETQ,A_KR,-1.56401196295
 RQ_ETA,K_KR,0.372853488021
 ```
-3. The heatmap of the calcuated epistasis scores for each combination.
+3. The heatmap (an Excel Matrix) of the calcuated epistasis scores for each combination.
 ![Image](epcalc_demo_heatmap.png)
 
 ## Note
