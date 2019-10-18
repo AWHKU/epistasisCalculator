@@ -104,14 +104,14 @@ genHeatmapIn(heatmap1,heatmap2,outfn,heatfn)
 def genHeatmap(heatfn):
  alphabets=['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z']
  file=open(heatfn,"r")
- hpic=heatfn.split(".")[0].strip("In")+".png"
+ hpic=heatfn.split(".")[0].strip("In")+".xlsx"
  h=file.readline().strip("\r\n").split(",")
  mat=pd.read_csv(heatfn)
  mini, maxi= mat[h[2]].min(), mat[h[2]].max()
  mat=mat.pivot(h[0],h[1],h[2])
  shape=mat.shape
  dim='B2:'+alphabets[shape[1]]+str(shape[0]+1)
- excel_file='testfile.xlsx'
+ excel_file=hpic
  sheet_name='Sheet1'
  writer = pd.ExcelWriter(excel_file, engine='xlsxwriter')
  mat.to_excel(writer, sheet_name=sheet_name)
