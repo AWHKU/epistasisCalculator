@@ -52,7 +52,7 @@ AA_ETQ,A_KR,-1.56401196295
 RQ_ETA,K_KR,0.372853488021
 ```
 3. The heatmap (an Excel matrix) of the calcuated epistasis scores for each combination.
-![Image](epcalc_demo_heatmap.png)
+![Image](heatmap_pic.png)
 
 ## Note
 csv files can be opened using excel or other spreadsheet softwares.
