@@ -27,29 +27,30 @@ python epistasisCalc.py epcalc_demo.csv 5 4 1,3 2,4
 ## Output
 1. The program outputs a csv file showing the expected and observed log2 enrichment scores, and the epistasis score.
 ```
-# variant,module0,module1,module2,module3,expected,observed,epistasis score
-1,RQ,K,ETQ,KR,0.599970141774,0.599970141774,0.0
-2,RA,K,ETQ,KR,0.686677888579,0.946801128994,0.260123240415
-3,AQ,K,ETQ,KR,0.728668411362,1.11476322013,0.386094808765
-4,AA,K,ETQ,KR,0.638929601079,0.755807978993,0.116878377914
-5,RQ,A,ETQ,KR,0.713018218045,1.05216244686,0.339144228812
-6,RA,A,ETQ,KR,0.79972596485,-0.167208855943,-0.966934820793
-7,AQ,A,ETQ,KR,0.841716487633,0.87895350402,0.0372370163874
-8,AA,A,ETQ,KR,0.751977677349,-0.812034285604,-1.56401196295
-9,RQ,K,ETA,KR,0.724254637781,1.0971081258,0.372853488021
+# variant,module1,module2,module3,module4,expected,observed,epistasis score
+1,RQ,ETQ,K,KR,0,0,0.0
+2,RA,ETQ,K,KR,0.946801128994,0.946801128994,0.0
+3,AQ,ETQ,K,KR,1.11476322013,1.11476322013,0.0
+4,AA,ETQ,K,KR,0.755807978993,0.755807978993,0.0
+5,RQ,ETQ,A,KR,1.05216244686,1.05216244686,0.0
+6,RA,ETQ,A,KR,1.99896357585,-0.167208855943,-2.2
+7,AQ,ETQ,A,KR,2.16692566698,0.87895350402,-1.3
+8,AA,ETQ,A,KR,1.80797042585,-0.812034285604,-2.6
+9,RQ,ETA,K,KR,1.0971081258,1.0971081258,0.0
 ```
 2. The program outputs a csv file, which is used as the input for heatmap generation. Column 1 contains the indicated modules in [heatmap Dimension1], and Column 2 contains the indicated modules in [heatmap Dimension2].
 ```
-module0_module2,module1_module3,epistasis score
-RQ_ETQ,K_KR,0.0
-RA_ETQ,K_KR,0.260123240415
-AQ_ETQ,K_KR,0.386094808765
-AA_ETQ,K_KR,0.116878377914
-RQ_ETQ,A_KR,0.339144228812
-RA_ETQ,A_KR,-0.966934820793
-AQ_ETQ,A_KR,0.0372370163874
-AA_ETQ,A_KR,-1.56401196295
-RQ_ETA,K_KR,0.372853488021
+RA_ETQ,A_KR,-2.2
+AQ_ETQ,A_KR,-1.3
+AA_ETQ,A_KR,-2.6
+RQ_ETA,K_KR,
+RA_ETA,K_KR,
+AQ_ETA,K_KR,
+AA_ETA,K_KR,
+RQ_ETA,A_KR,-2.5
+RA_ETA,A_KR,-1.4
+AQ_ETA,A_KR,-2.9
+AA_ETA,A_KR,-1.5
 ```
 3. The heatmap (an Excel matrix) of the calcuated epistasis scores for each combination.
 ![Image](heatmap_pic.png)
