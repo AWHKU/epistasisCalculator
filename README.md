@@ -1,8 +1,7 @@
-# Epistasis Calculator (Tutorial: https://www.youtube.com/watch?v=32bAxORsvUA&feature=youtu.be)
+# Epistasis Calculator 
 
 The program epistasisCalc.py calculates the epistasis scores of combinatorial protein variants. See the book chapter  Structural Genomics from Springer Nature's Methods in Molecular Biology series on High-throughput Protein Engineering by Massively Parallel Combinatorial Mutagenesis for further references.
-
-
+(Tutorial: https://www.youtube.com/watch?v=32bAxORsvUA&feature=youtu.be)
 ## Input
 The input format is indicated as in epcalc_demo.csv. This program requires a csv input file and runs in Python 2.7.
 The demo input is from https://www.nature.com/articles/s41592-019-0473-0 (G.C.G. Choi et al., Nat. Methods, 2019) and generates the heatmap equivalent to the sg5-on heatmap in Figure 4.
@@ -58,6 +57,7 @@ AA_ETA,A_KR,-1.5
 
 ## Note
 csv files can be opened using excel or other spreadsheet softwares.
+(Tutorial: https://www.youtube.com/watch?v=32bAxORsvUA&feature=youtu.be)
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
